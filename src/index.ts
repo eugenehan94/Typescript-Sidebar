@@ -1,11 +1,18 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+const toggleBtn = document.querySelector<HTMLButtonElement>(".sidebar-toggle");
+const closeBtn = document.querySelector<HTMLButtonElement>(".close-btn")
+const sidebar = document.querySelector<HTMLElement>(".sidebar")
 
-import confetti from 'canvas-confetti';
+toggleBtn?.addEventListener("click", () => {
+  if(sidebar?.classList.contains("show-sidebar")){
+    sidebar.classList.remove("show-sidebar")
+  }else {
+    sidebar?.classList.add("show-sidebar")
+  }
+  //sidebar?.classList.toggle("show-sidebar")
+})
 
-confetti.create(document.getElementById('canvas') as HTMLCanvasElement, {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+closeBtn?.addEventListener("click", () => {
+  sidebar?.classList.remove("show-sidebar")
+})
+
+export {}
